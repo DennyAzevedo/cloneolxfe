@@ -5,7 +5,7 @@ background-color: #FFF;
 height: 60px;
 border-bottom: 1px solid #CCC;
 .container {
-	max-width: 1000px;
+	max-width: 1200px;
 	margin: 0 auto;
 	display: flex;
 }
