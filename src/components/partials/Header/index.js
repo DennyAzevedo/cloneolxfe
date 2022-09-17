@@ -1,10 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { HeaderArea } from './styled'
-import { isLogged } from '../../../helpers/AuthHandler'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { HeaderArea } from './styled';
+import { isLogged, doLogout } from '../../../helpers/AuthHandler';
 
 const Header = () => {
 	let logged = isLogged();
+
+	const handleLogout = () => {
+		doLogout();
+		window.location.href = '/';
+	}
 
 	return (
 		<HeaderArea>
@@ -18,20 +23,20 @@ const Header = () => {
 				</div>
 				<nav>
 					<ul>
-						{logged && 
+						{logged &&
 							<>
 								<li>
 									<Link to="/my-account">Minha Conta</Link>
 								</li>
 								<li>
-									<Link to="/logout">Sair</Link>
+									<button onClick={handleLogout}>Sair</button>
 								</li>
 								<li>
 									<Link to="/post-an-ad" className="button">post um anúncio</Link>
 								</li>
 							</>
 						}
-						{!logged && 
+						{!logged &&
 							<>
 								<li>
 									<Link to="/signin">Login</Link>
@@ -48,7 +53,7 @@ const Header = () => {
 				</nav>
 			</div>
 		</HeaderArea>
-	)
+	);
 }
 
 export default Header;
