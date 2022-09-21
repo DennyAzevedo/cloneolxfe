@@ -81,5 +81,20 @@ export const SearchArea = styled.div`
 `;
 
 export const PageArea = styled.div`
+	h2 {
+		font-size: 20px;
+	}
 
+	.list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.seeAllLink {
+		color: #000;
+		text-decoration: none;
+		font-weight: bold;
+		display: inline-block;
+		margin-top: 10px;
+	}
 `;

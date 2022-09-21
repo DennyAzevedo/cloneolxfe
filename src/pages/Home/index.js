@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { PageArea, SearchArea } from './styled';
 import { PageContainer, ErrorMessage } from '../../components/MainComponents';
+import AdItem from '../../components/partials/AdItem'
 import useApi from '../../helpers/OlxAPI';
 
 const Page = () => {
@@ -9,6 +10,7 @@ const Page = () => {
 
 	const [stateList, setStateList] = useState([]);
 	const [categories, setCategories] = useState([]);
+	const [adList, setAdList] = useState([]);
 
 	useEffect(() => {
 		const getStates = async () => {
@@ -24,6 +26,17 @@ const Page = () => {
 			setCategories(cats);
 		}
 		getCategories();
+	}, []);
+
+	useEffect(() => {
+		const getRecentAds = async () => {
+			const json = await api.getAds({
+				sort: 'desc',
+				limit: 8
+			});
+			setAdList(json.ads);
+		}
+		getRecentAds();
 	}, []);
 
 	return (
@@ -63,7 +76,19 @@ const Page = () => {
 			</SearchArea>
 			<PageContainer>
 				<PageArea>
-				
+					<h2>Anúncios Recentes</h2>			
+					<div className="list">
+						{adList.map((i, k) => 
+							<AdItem key={k} data={i} />
+						)}
+					</div>
+					<Link to="/ads" className="seeAllLink">Ver todos</Link>
+					<hr />
+					O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.
+					O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde
+					o ano de 1500, quando uma misturou os caracteres de um texto para criar um
+					espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto
+					para a tipografia eletrônica, mantendo-se essencialmente inalterada.
 				</PageArea>			
 			</PageContainer>
 		</>
