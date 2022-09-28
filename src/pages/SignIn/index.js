@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { PageArea } from './styled';
-import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
+import {
+	PageContainer,
+	PageTitle,
+	ErrorMessage
+} from '../../components/MainComponents';
 import useApi from '../../helpers/OlxAPI';
 import { doLogin } from '../../helpers/AuthHandler';
 

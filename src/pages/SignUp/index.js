@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { PageArea } from './styled';
-import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
+import {
+	PageContainer, 
+	PageTitle,
+	ErrorMessage
+} from '../../components/MainComponents';
 import useApi from '../../helpers/OlxAPI';
 import { doLogin } from '../../helpers/AuthHandler';
 
@@ -62,7 +66,7 @@ const Page = () => {
 						</div>
 						<div className="area--input">
 							<input
-								type="email"
+								type="text"
 								disabled={disabled}
 								value={name}
 								onChange={e => setName(e.target.value)}
