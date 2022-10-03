@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Fake = styled.div`
 	background-color: #DDD;
 	height: ${props => props.height || 20}px;
-`
+`;
 
 export const PageArea = styled.div`
 	display: flex;
@@ -100,4 +100,29 @@ export const PageArea = styled.div`
 		}
 
 	}
-`
+`;
+export const OthersArea = styled.div`
+	h2 {
+		font-size: 20px;
+	}
+
+	.list {
+		display: flex;
+
+		.aditem {
+			width: 25%;
+		}
+	}
+`;
+
+export const BreadChumb = styled.div`
+	font-size: 13px;
+	margin-top: 20px;
+
+	a {
+		display: inline-block;
+		margin: 0 5px;
+		text-decoration: underline;
+		color: #000;
+	}
+`;
