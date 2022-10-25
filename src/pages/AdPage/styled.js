@@ -98,9 +98,9 @@ export const PageArea = styled.div`
 			color: #999;
 			margin-top: 10px;
 		}
-
 	}
 `;
+
 export const OthersArea = styled.div`
 	h2 {
 		font-size: 20px;
